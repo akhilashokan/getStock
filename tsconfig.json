@@ -22,7 +22,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "components/search/search.module"
   ],
   "exclude": [
     "node_modules"

@@ -1,3 +1,12 @@
+import style from './search.module.scss'
 export default function Search() {
-    return <h1>Search</h1>
+
+    return (
+        <div className={style.container}>
+            <input className={style.search} type="text" list="stocks" name="" id="" />
+            <datalist id="stocks">
+                <option value="Swift">Swift</option>
+            </datalist>
+        </div>
+    )
 }
