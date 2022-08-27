@@ -41,10 +41,13 @@ p {
 }
 
 ._header {
-    max-width: toRem(1600);
-    margin-inline: auto;
     padding: 1rem;
     background: linear-gradient(#fff, $colorBg);
+
+    h2 {
+        max-width: toRem(1600);
+        margin-inline: auto;
+    }
 }
 
 
