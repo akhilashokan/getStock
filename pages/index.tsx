@@ -3,6 +3,8 @@ import Search from '../components/search/search'
 export default function App() {
     /*
         Sorry ,Time was not enough 
+        the database setup took a lot of time 
+        should have used local myQsl 
     */
     return (
         <>
