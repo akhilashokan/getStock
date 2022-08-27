@@ -1,12 +1,4 @@
-import express, { json, request, response } from 'express';
-
-const port = 3000;
-
-const app = express();
-
-app.listen(port, () => {
-    console.log('test');
-});
+'use strict';
 //for testing
 var stocks = [
     "Bhansali Engg",
@@ -48,8 +40,18 @@ function getStocks() {
     return response;
 }
 
-
-export default function handler(request, response) {
-    response.header('Access-Control-Allow-Origin', '*');
-    response.json(getStocks());
+exports.handler = function (event, context, callback) {
+    if (event.httpMethod === 'GET' && event.path === '/') {
+        const newValue = getStocks();
+        callback(null, {
+            statusCode: 200,
+            body: newValue
+        });
+    } else {
+        callback(null, {
+            statusCode: 400,
+            body: {}
+        });
+    }
 }
+
