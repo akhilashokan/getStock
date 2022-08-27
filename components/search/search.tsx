@@ -5,7 +5,7 @@ export default function Search() {
         <div className={style.container}>
             <input className={style.search} type="text" list="stocks" name="" id="" />
             <datalist id="stocks">
-                <option value="Swift">Swift</option>
+                <option value="stockName">stock</option>
             </datalist>
         </div>
     )
