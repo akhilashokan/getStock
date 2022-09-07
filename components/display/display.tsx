@@ -21,7 +21,7 @@ export default function Display({ item }) {
                         {stats.map((value: [string, string], key) => {
                             return <div className={style.stat} key={key}>
                                 <p className={style.statName}>{value[0]}</p>
-                                <p className={style.value}>&#2352; {value[1]}</p>
+                                <p className={style.value}>{value[1]}</p>
                             </div>
                         })}
                     </div>
