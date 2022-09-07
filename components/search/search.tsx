@@ -5,7 +5,7 @@ export default function Search() {
     const [stocks, setStocks] = useState([{
         "Name": "",
     },])
-    const ref = useRef()
+    const ref = useRef<HTMLInputElement>()
     const [selectStock, setSelectedStock] = useState(null)
     const [clear, setClear] = useState(false)
     useEffect(() => {
