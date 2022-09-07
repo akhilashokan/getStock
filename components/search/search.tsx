@@ -1,49 +1,36 @@
+import { useEffect, useState } from 'react'
+import Display from '../display/display'
 import style from './search.module.scss'
 export default function Search() {
-    /*
-    since the time has reached setting 
-    a variable to show what i would have 
-    done when i got the data. :|
-    */
-    var stocks = [
-        "Bhansali Engg",
-        "Coal Indi",
-        "IOL Chemical",
-        "Dolat Investmen",
-        "NDT",
-        "Balmer Law Inv",
-        "Ebixcash Worl",
-        "Mangalam Organi",
-        "INEOS Styrolut",
-        "Expleo Solution",
-        "Sh Jagdamba Po",
-        "Godawari Powe",
-        "Cigniti Tech",
-        "Kirl Ferrou",
-        "Rite",
-        "GujStPetrone",
-        "Ester Industrie",
-        "Anjani Portlan",
-        "Venky's (India",
-        "Heritage Food-",
-        "SI",
-        "GTPL Hathwa",
-        "Welspun Cor",
-        "I G Petrochem",
-        "Geojit Fin Ser",
-        "Sasken Technol",
-        "Engineers Indi",
-        "Petronet LN",
-        "Saksof",
-        "Polyplex Corp"
-    ];
-
+    const [stocks, setStocks] = useState([{
+        "Name": "",
+    },])
+    const [selectStock, setSelectedStock] = useState(null)
+    useEffect(() => {
+        const options = { method: 'GET', headers: { Accept: 'application/json' } };
+        fetch('http://localhost:8888/.netlify/functions/getdata', options)
+            .then(res => res.json())
+            .then(result => {
+                setStocks(result)
+            })
+    }, [])
+    function handleChange(e) {
+        const { value } = e.target
+        stocks.find((item) => {
+            if (item.Name === value) {
+                setSelectedStock(item)
+            }
+        })
+    }
     return (
         <div className={style.container}>
-            <input className={style.search} type="text" list="stocks" name="" id="" />
-            <datalist id="stocks">
-                {stocks.map((value, key) => <option key={key} value={value}>{value}</option>)}
-            </datalist>
+            <div className="input">
+                <input className={style.search} onChange={handleChange} type="text" list="stocks" name="" id="" />
+                <datalist id="stocks">
+                    {stocks.map((value, key) => <option key={key} value={value.Name}>{value.Name}</option>)}
+                </datalist>
+            </div>
+            {selectStock && <Display item={selectStock} />}
         </div>
     )
 }
