@@ -41,17 +41,9 @@ function getStocks() {
 }
 
 exports.handler = function (event, context, callback) {
-    if (event.httpMethod === 'GET' && event.path === '/') {
-        const newValue = getStocks();
-        callback(null, {
-            statusCode: 200,
-            body: newValue
-        });
-    } else {
-        callback(null, {
-            statusCode: 400,
-            body: {}
-        });
-    }
+    callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(stocks),
+    })
 }
 
