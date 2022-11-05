@@ -9,6 +9,8 @@ export default function Search() {
     const [selectStock, setSelectedStock] = useState(null)
     const [clear, setClear] = useState(false)
     useEffect(() => {
+
+
         const options = { method: 'GET', headers: { Accept: 'application/json' } };
         fetch('http://localhost:8888/.netlify/functions/getdata', options)
             .then(res => res.json())

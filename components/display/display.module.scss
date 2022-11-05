@@ -16,6 +16,7 @@
     padding: 0.5rem;
     border-radius: 0.2em;
 
+
 }
 
 .stat {
@@ -24,6 +25,10 @@
     align-items: center;
     padding: 0.5rem;
     border-radius: 0.2em;
+
+    &:nth-child(4n) {
+        background-color: rgba(144, 238, 144, 0.253);
+    }
 
     p {
         font-size: 0.8em;

@@ -19,9 +19,21 @@ export default function Display({ item }) {
                 <div className="wrapper">
                     <div className={style.stats}>
                         {stats.map((value: [string, string], key) => {
+                            let pref
+                            switch (value[0]) {
+                                case 'Current Market Price':
+                                    pref = '₹'
+                                    break;
+                                case 'Current Market Price':
+                                    pref = '₹'
+                                    break;
+
+                                default:
+                                    break;
+                            }
                             return <div className={style.stat} key={key}>
                                 <p className={style.statName}>{value[0]}</p>
-                                <p className={style.value}>{value[1]}</p>
+                                <p className={style.value}>{pref} {value[1]}</p>
                             </div>
                         })}
                     </div>
