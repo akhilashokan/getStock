@@ -12,7 +12,7 @@ export default function Search() {
 
 
         const options = { method: 'GET', headers: { Accept: 'application/json' } };
-        fetch('http://localhost:8888/.netlify/functions/getdata', options)
+        fetch('https://getstockx.netlify.app/.netlify/functions/getdata', options)
             .then(res => res.json())
             .then(result => {
                 setStocks(result)
